@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import App from "./App";
 import { server } from "./mockServer";
 
-describe("renders learn react link", () => {
+describe("Test changePassword", () => {
   beforeAll(() => {
     server.listen();
   });
@@ -36,7 +36,7 @@ describe("renders learn react link", () => {
         name: "Submit"
       })
     );
-    expect(await screen.findByText("Error in changing password")).toBeInTheDocument();
+    expect(await screen.findByText("Error: This password is same as previous one")).toBeInTheDocument();
     screen.debug();
   });
 });
